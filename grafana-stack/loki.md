@@ -7,8 +7,9 @@ go version
 ```
 # 2. Download and build loki
 ```
+apt install git -y
 git clone https://github.com/grafana/loki
-go build ./cmd/loki
+cd loki && go build ./cmd/loki
 mv loki /usr/local/bin/
 mkdir /etc/loki
 mv cmd/loki/loki-local-config.yaml /etc/loki/
@@ -19,6 +20,7 @@ mv cmd/loki/loki-local-config.yaml /etc/loki/
 sed -i 's/\/tmp\/wal/\/opt\/loki\/wal/g' /etc/loki/loki-local-config.yaml
 sed -i 's/\/tmp\/loki/\/opt\/loki/g' /etc/loki/loki-local-config.yaml
 mkdir /opt/loki
+## test loki
 /usr/local/bin/loki -config.file=/etc/loki/loki-local-config.yaml
 ```
 
@@ -56,4 +58,25 @@ systemctl status loki
 
 ```
 
-
+# 5. Enable multi-tenant 
+```
+change in /etc/loki/loki-local-config.yaml
+auth_enabled: true
+```
+# 6. listen only localhost 
+```
+server:
+  http_listen_port: 3100        # Keep this as is
+  grpc_listen_port: 9096        # Keep this as is
+  log_level: debug               # Keep this as is
+  grpc_server_max_concurrent_streams: 1000  # Keep this as is
+  http:
+    address: 127.0.0.1:3100      # Listen only on localhost for HTTP
+  grpc:
+    address: 127.0.0.1:9096       # Listen only on localhost for gRPC
+```
+# 7. restart loki
+```
+systemctl restart loki
+systemctl status loki
+```
