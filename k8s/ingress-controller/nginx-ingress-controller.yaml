@@ -411,10 +411,8 @@ spec:
   replicas: 2
   minReadySeconds: 0
   revisionHistoryLimit: 10
-  # Запускаться только на тех нодах где label
-  # kubectl label nodes node-1 ingress-nginx-node=enable
-  #nodeSelector:
-  #  ingress-nginx-node: enable
+
+
   selector:
     matchLabels:
       app.kubernetes.io/component: controller
@@ -433,6 +431,11 @@ spec:
         app.kubernetes.io/part-of: ingress-nginx
         app.kubernetes.io/version: 1.11.2
     spec:
+      # Запускаться только на тех нодах где label
+      # kubectl label nodes node-1 ingress-nginx-node=enable
+      nodeSelector:
+        ingress-nginx-node: enable
+        kubernetes.io/os: linux
       containers:
       - args:
         - /nginx-ingress-controller
@@ -517,8 +520,6 @@ spec:
           name: webhook-cert
           readOnly: true
       dnsPolicy: ClusterFirst
-      nodeSelector:
-        kubernetes.io/os: linux
       serviceAccountName: ingress-nginx
       terminationGracePeriodSeconds: 300
       volumes:
