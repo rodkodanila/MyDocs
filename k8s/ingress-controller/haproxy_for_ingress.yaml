@@ -1,0 +1,12 @@
+frontend https
+    bind *:443
+    mode tcp
+    option tcplog
+    default_backend ingress-backends
+
+backend ingress-backends
+    mode tcp
+    balance roundrobin
+    server ingress-controller1 172.20.1.207:30443 check
+    server ingress-controller2 172.20.1.208:30443 check
+    server ingress-controller3 172.20.1.209:30443 check
