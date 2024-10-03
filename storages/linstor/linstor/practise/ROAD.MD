@@ -1,19 +1,13 @@
 # Basic Administrative Tasks and System Setup
 ```text
-[ - ] 2.5. Initializing Your Cluster
-[ - ] 2.6. Using the LINSTOR Client
-[ - ] 2.7. Adding Nodes to Your Cluster
-[ - ] 2.8. Listing Nodes in Your Cluster
-[ - ] 2.9. Storage Pools
-[ - ] 2.10. Using Resource Groups to Deploy LINSTOR Provisioned Volumes
-[ - ] 2.11. Configuring a Cluster
-[ - ] 2.12. Creating and Deploying Resources and Volumes
-[ - ] 2.13. Deleting Resources, Resource Definitions, and Resource Groups
-[ - ] 2.14. Backup and Restore Database
+[ + ] Initializing Your Cluster
+[ + ] Storage Pools
+[ + ] Creating and Deploying Resources and Volumes and Deleting Resources, Resource Definitions, and Resource Groups
+[ + ] Backup and Restore Database
 ```
 # Further LINSTOR Tasks
 ```text
-[ - ] 3.1. Creating a Highly Available LINSTOR Cluster
+[ - ] Creating a Highly Available LINSTOR Cluster
 [ - ] 3.2. DRBD Clients
 [ - ] 3.3. DRBD Consistency Groups (Multiple Volumes within a Resource)
 [ - ] 3.4. Placing Volumes of One Resource in Different Storage Pools
