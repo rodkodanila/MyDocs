@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: dev-role-binding
+  namespace: ediflow-prod
+subjects:
+- kind: User
+  name: dev
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: dev-role
+  apiGroup: ""
