@@ -1,0 +1,1 @@
+dd if=/dev/zero of=/dev/sdX bs=1M 
