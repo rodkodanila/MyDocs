@@ -370,7 +370,7 @@ spec:
     app.kubernetes.io/name: ingress-nginx
   type: NodePort
   # открывает порт только на nodes с ingress-controller и трафик идет строго на Pod на этой Node
-  externalTrafficPolicy: Local
+  #externalTrafficPolicy: Local
 ---
 apiVersion: v1
 kind: Service
@@ -433,9 +433,9 @@ spec:
     spec:
       # Запускаться только на тех нодах где label
       # kubectl label nodes node-1 ingress-nginx-node=enable
-      nodeSelector:
-        ingress-nginx-node: enable
-        kubernetes.io/os: linux
+      #nodeSelector:
+      #  ingress-nginx-node: enable
+      #  kubernetes.io/os: linux
       containers:
       - args:
         - /nginx-ingress-controller

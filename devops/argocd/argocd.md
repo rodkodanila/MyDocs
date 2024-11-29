@@ -81,4 +81,7 @@ argocd cluster list
 ```
 ssh-keygen -t rsa-sha2-512
 argocd repo add git@<git-path> --ssh-private-key-path ~/.ssh/azure --upsert --insecure-skip-server-verification
+
+argocd repo add https://ivc-adsp.ivcmf.by/DefaultCollection/DevOps/_git/DevOps  --username  --password  --type helm 
 ```
+
